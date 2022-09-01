@@ -35,20 +35,54 @@
   </p>
   <br />
   E-Mail:
-  <input type="email" name="email" required [(ngModel)]="usuario.email" /><br />
+  <input type="email" required [(ngModel)]="usuario.email" /><br />
   Contraseña:
-  <input
-    type="password"
-    name="password"
-    required
-    [(ngModel)]="usuario.password"
-  /><br />
+  <input type="password" required [(ngModel)]="usuario.password" /><br />
   Rol:
-  <input type="text" name="rol" required [(ngModel)]="usuario.role" /><br />
+  <input type="text" required [(ngModel)]="usuario.role" /><br />
   Edad:
-  <input type="number" name="age" required [(ngModel)]="usuario.age" /><br />
+  <input type="number" required [(ngModel)]="usuario.age" /><br />
   <br />
 
   <button (click)="addUser()">Agregar Usuario</button>
 </div>
 <hr />
+
+<h1>Formulario</h1>
+<form (ngSubmit)="(onRegister)" #myForm="ngForm">
+  <div class="input-group">
+    Nombre
+    <input
+      type="text"
+      required
+      name="name"
+      id="name"
+      [(ngModel)]="register.name"
+    />
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    E-mail
+    <input
+      type="email"
+      required
+      name="email"
+      id="email"
+      [(ngModel)]="register.email"
+    />
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input-group">
+    Password
+    <input
+      type="password"
+      required
+      name="password"
+      id="password"
+      [(ngModel)]="register.password"
+    />
+    <p>Mensajes de error</p>
+  </div>
+  <button [disabled]="myForm.invalid" type="submit">Registrar</button>
+  <button type="button">Acción</button>
+</form>

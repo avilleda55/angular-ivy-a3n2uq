@@ -42,10 +42,21 @@ export class AppComponent {
       age: 0,
     };
   }
+
+  register = {
+    name: '',
+    email: '',
+    password: '',
+  };
+
   deleteUser(index: number) {
     this.users.splice(index, 1);
   }
   updateUser(index: number) {
     this.users[index] = this.usuario;
+  }
+
+  onRegister() {
+    console.log(this.register);
   }
 }
