@@ -1,0 +1,49 @@
+<div>
+  <table>
+    <thead>
+      <th></th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Rol</th>
+      <th>Edad</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr collspan="6" *ngIf="users.length === 0">
+        No hay Usuarios
+      </tr>
+      <tr *ngFor="let user of users; index as i">
+        <td>{{ i }}</td>
+        <td><input type="text" value="{{ user.name }}" /></td>
+        <td><input type="email" value="{{ user.email }}" /></td>
+        <td><input type="text" value="{{ user.role }}" /></td>
+        <td><input type="number" value="{{ user.age }}" /></td>
+        <td><button (click)="deleteUser(i)">Eliminar</button></td>
+        <td><button>Modificar</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <br />
+  <h1>Agregar Usuarios</h1>
+
+  Nombre:
+  <input type="text" name="name" required [(ngModel)]="usuario.name" /><br />
+  E-Mail:
+  <input type="email" name="email" required [(ngModel)]="usuario.email" /><br />
+  Contraseña:
+  <input
+    type="password"
+    name="password"
+    required
+    [(ngModel)]="usuario.password"
+  /><br />
+  Rol:
+  <input type="text" name="rol" required [(ngModel)]="usuario.role" /><br />
+  Edad:
+  <input type="number" name="age" required [(ngModel)]="usuario.age" /><br />
+  <br />
+
+  <button (click)="addUser()">Agregar Usuario</button>
+</div>
