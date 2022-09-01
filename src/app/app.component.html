@@ -29,7 +29,11 @@
   <h1>Agregar Usuarios</h1>
 
   Nombre:
-  <input type="text" name="name" required [(ngModel)]="usuario.name" /><br />
+  <input type="text" required #nameInput="ngModel" [(ngModel)]="usuario.name" />
+  <p class="message-error" [class.invalid]="nameInput.invalid">
+    Campo requerido
+  </p>
+  <br />
   E-Mail:
   <input type="email" name="email" required [(ngModel)]="usuario.email" /><br />
   Contraseña:
@@ -47,3 +51,4 @@
 
   <button (click)="addUser()">Agregar Usuario</button>
 </div>
+<hr />
