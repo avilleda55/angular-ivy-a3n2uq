@@ -46,7 +46,7 @@ export class AppComponent {
   register = {
     name: '',
     email: '',
-    password: '',
+    password: ''
   };
 
   deleteUser(index: number) {
